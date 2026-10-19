@@ -1,0 +1,46 @@
+name: local-waf-lab
+
+services:
+  demo:
+    build:
+      context: ./demo
+    expose:
+      - "8000"
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    restart: unless-stopped
+
+  waf:
+    image: owasp/modsecurity-crs:4.25-apache-lts
+    depends_on:
+      demo:
+        condition: service_healthy
+    environment:
+      BACKEND: http://demo:8000
+      PORT: "8080"
+      BLOCKING_PARANOIA: "1"
+      DETECTION_PARANOIA: "1"
+      ANOMALY_INBOUND: "5"
+      MODSEC_RULE_ENGINE: On
+      MODSEC_AUDIT_ENGINE: On
+      MODSEC_AUDIT_LOG: /dev/stdout
+      MODSEC_AUDIT_LOG_FORMAT: JSON
+    ports:
+      - "127.0.0.1:8080:8080"
+    networks:
+      - front
+      - backend
+    restart: unless-stopped
+
+networks:
+  front:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true

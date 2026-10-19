@@ -1,0 +1,5 @@
+services:
+  waf:
+    environment:
+      # Experiment: a higher score threshold lowers blocking sensitivity.
+      ANOMALY_INBOUND: "10"

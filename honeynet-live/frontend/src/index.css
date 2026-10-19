@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body { background: #070b14; }
+
+.leaflet-container { background: #0b1220; font-family: inherit; }
+.severity-high { color: #ff5d73; }
+.severity-medium { color: #f5c542; }
+.severity-low { color: #3ee0b0; }

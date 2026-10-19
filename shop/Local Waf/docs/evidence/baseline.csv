@@ -1,0 +1,7 @@
+case,category,http_status,backend_reached,disposition,note
+normal home,ordinary,ERROR,no,error,URLError
+ordinary search,ordinary,ERROR,no,error,URLError
+benign punctuation false-alarm check,false-positive check,ERROR,no,error,URLError
+XSS signature string,harmless probe,ERROR,no,error,URLError
+SQLi signature string,harmless probe,ERROR,no,error,URLError
+encoded traversal string,harmless probe,ERROR,no,error,URLError

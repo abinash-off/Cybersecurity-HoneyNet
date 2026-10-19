@@ -1,0 +1,11 @@
+# Decoy accounts only. These are NOT host or cloud credentials.
+# Format: username:uid:password
+# * = any password is accepted so Cowrie can record post-login commands.
+# The attacker is still inside a fake Python filesystem, not a real shell.
+
+root:x:*
+admin:x:*
+ubuntu:x:*
+oracle:x:*
+guest:x:guest
+pi:x:raspberry

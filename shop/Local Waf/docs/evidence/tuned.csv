@@ -1,0 +1,7 @@
+case,category,http_status,backend_reached,disposition,note
+normal home,ordinary,200,yes,allowed,
+ordinary search,ordinary,200,yes,allowed,
+benign punctuation false-alarm check,false-positive check,200,yes,allowed,
+XSS signature string,harmless probe,403,no,blocked,HTTP response
+SQLi signature string,harmless probe,200,yes,allowed,
+encoded traversal string,harmless probe,400,no,rejected,HTTP response
