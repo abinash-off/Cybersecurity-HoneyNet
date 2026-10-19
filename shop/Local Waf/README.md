@@ -16,7 +16,7 @@ docker compose up --build -d
 docker compose ps
 ```
 
-Visit <http://localhost:8080/> for the lab landing page. Use its search form to send a normal request through the WAF; the demo backend returns a fixed confirmation and does not search or process the submitted text. Only the WAF binds a host port, explicitly on `127.0.0.1`; the backend is reachable only over the internal Docker network.
+Visit <http://localhost:8088/> for the lab landing page. Use its search form to send a normal request through the WAF; the demo backend returns a fixed confirmation and does not search or process the submitted text. Only the WAF binds a host port, explicitly on `127.0.0.1`; the backend is reachable only over the internal Docker network.
 
 Run the six-request test set and inspect logs:
 
